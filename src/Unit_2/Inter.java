@@ -7,7 +7,6 @@ public interface Inter
         return 0;
     }
 
-
     public int volume();
 
 }
