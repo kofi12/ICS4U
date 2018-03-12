@@ -6,8 +6,8 @@ import java.util.function.Consumer;
 
 public class Cube extends Shapes3D implements Inter
 {
-    int length;
-    int numOfSides;
+    private int length;
+    private int numOfSides;
 
     public Cube(String name, int dimensions, int length, int numOfSides)
     {
@@ -42,8 +42,6 @@ public class Cube extends Shapes3D implements Inter
     @Override
     public int surfaceArea()
     {
-
-
         return 0;
     }
 
