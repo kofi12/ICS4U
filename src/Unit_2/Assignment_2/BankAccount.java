@@ -2,9 +2,11 @@ package Unit_2.Assignment_2;
 
 public class BankAccount
 {
-    String accountNumber;
-    String accountHolder;
-    double balance;
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
+
+
 
 
 }
