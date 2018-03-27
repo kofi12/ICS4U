@@ -10,40 +10,44 @@ public class SeqSearch
     {
         Scanner in = new Scanner(System.in);
 
-        final int ACCOUNT_SIZE = 1;
+        final int ACCOUNT_SIZE = 3;
         String accountNumber;
         String accountHolder;
         double balance;
 
         CheckingAccount[] accounts = new CheckingAccount[ACCOUNT_SIZE];
 
-        for(int i = 0; i < accounts.length; i++)
+        for(int i = 0; i < accounts.length; i++)                //traversing the array
         {
-            accounts[i] = new CheckingAccount(accountHolder = in.next(),
+            accounts[i] = new CheckingAccount(accountHolder = in.next(),            //filling the array with CheckingAccounts
                     accountNumber = in.next(),
                     balance = in.nextDouble());
         }
         boolean b = sequentialSearch(accounts, "ANDREW");
-        //System.out.println(accounts[0].getAccountHolder());
+        System.out.println("\n" + b);
+
     }
 
     public static boolean sequentialSearch(CheckingAccount[] checkingAccounts, String name)
     {
         boolean isFound = false;
+        int i = 0;
 
-        for(int i = 0; i < checkingAccounts.length || isFound; i++)
+        for(i = 0; i < checkingAccounts.length && !isFound; i++) //traverse the passed in array
         {
-            if(checkingAccounts[i].getAccountHolder() != name)
+            if(!isFound) // if isFound is true then we exit this whole block of statements
             {
-                System.out.println(name + " doesn't exist in our database");
-                isFound = false;
-            }
-            else
-            {
-                System.out.println(name + " has an account with us");
-                isFound = true;
+                if(!checkingAccounts[i].getAccountHolder().equals(name))
+                {
+                    isFound = false;
+                }
+                else
+                {
+                    isFound = true;
+                }
             }
         }
+        System.out.println(i);
         return isFound;
     }
 }
