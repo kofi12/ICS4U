@@ -15,18 +15,25 @@ public class SeqSearch
         String accountHolder;
         double balance;
 
-        CheckingAccount[] accounts = new CheckingAccount[ACCOUNT_SIZE];
+        int[] numbers = {5,3,9,2,1};
 
-        for(int i = 0; i < accounts.length; i++)                //traversing the array
-        {
-            accounts[i] = new CheckingAccount(accountHolder = in.next(),            //filling the array with CheckingAccounts
-                    accountNumber = in.next(),
-                    balance = in.nextDouble());
-        }
-        boolean b = sequentialSearch(accounts, "ANDREW");
-        System.out.println("\n" + b);
+        //CheckingAccount[] accounts = new CheckingAccount[ACCOUNT_SIZE];
+
+        //for(int i = 0; i < accounts.length; i++)                //traversing the array
+        //{
+           // accounts[i] = new CheckingAccount(accountHolder = in.next(),            //filling the array with CheckingAccounts
+                  //  accountNumber = in.next(),
+                    //balance = in.nextDouble());
+
+        //boolean b = sequentialSearch(accounts, "ANDREW");
+        //System.out.println("\n" + b);
+
+        System.out.println(Arrays.toString(numbers));
+        insertionSort(numbers);
+        System.out.println(Arrays.toString(numbers));
 
     }
+
 
     public static boolean sequentialSearch(CheckingAccount[] checkingAccounts, String name)
     {
@@ -49,5 +56,24 @@ public class SeqSearch
         }
         System.out.println(i);
         return isFound;
+    }
+
+    public static void insertionSort(int[] list)
+    {
+        // {5,3,9,2,1}
+
+        for(int current = 1; current < list.length; current++)
+        {
+
+            int temp = list[current];
+            int top = current;
+
+            while(top > 0 && temp < list[top - 1])
+            {
+                list[top] = list[top - 1];
+                top--;
+            }
+            list[top] = temp;
+        }
     }
 }
