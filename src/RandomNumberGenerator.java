@@ -1,5 +1,6 @@
 import Unit_2.Assignment_2.CheckingAccount;
 
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -18,26 +19,28 @@ public class RandomNumberGenerator
                                             /* nextInt method of the Random class
                                             provides a random number between 0 and upperbound
                                             (parameters)*/
-        int[] randomNum = new int[2_000_000];
+        int[] randomNum = new int[100000];
         int n = 0;
 
         int i = 0;
         while(i < randomNum.length)
         {
-            randomNum[i] = rng.nextInt(1_000_00);
+            randomNum[i] = rng.nextInt(10000);
             i++;
         }
 
         System.out.println(Arrays.toString(randomNum));
-        boolean b = sequentialSearch(randomNum,n = in.nextInt());
-        System.out.println(b);
+        //boolean b = sequentialSearch(randomNum,n = in.nextInt());
+        //System.out.println(b);
+        SeqSearch.insertionSort(randomNum);
+        System.out.println(Arrays.toString(randomNum));
 
-        long endTime = System.nanoTime();
+        //long endTime = System.nanoTime();
 
-        long timeElapsed = endTime - startTime;
+        //long timeElapsed = endTime - startTime;
 
-        System.out.println("Time elapsed in nano seconds is..." + timeElapsed);
-        System.out.println("Time elapsed in milliseconds seconds is..." + timeElapsed/1000000);
+        //System.out.println("Time elapsed in nano seconds is..." + timeElapsed);
+        //System.out.println("Time elapsed in milliseconds seconds is..." + timeElapsed/1000000);
     }
 
     public static boolean sequentialSearch(int[] numbers, int numSearch)
