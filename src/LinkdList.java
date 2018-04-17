@@ -96,10 +96,6 @@ public class LinkdList
         list.append(5);
         list.append(6);
         list.append(2);
-
-        list.deleteWithValue(2);
-
-
         list.display();
 
     }
